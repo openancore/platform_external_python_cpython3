@@ -121,7 +121,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Restore config.cache
-        uses: actions/cache@v3
+        uses: actions/cache@v6
         with:
           path: config.cache
           key: ${{ github.job }}-${{ runner.os }}-${{ needs.check_source.outputs.config_hash }}
@@ -220,7 +220,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Restore config.cache
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: config.cache
         key: ${{ github.job }}-${{ runner.os }}-${{ needs.check_source.outputs.config_hash }}
@@ -265,7 +265,7 @@ jobs:
         echo "LD_LIBRARY_PATH=${GITHUB_WORKSPACE}/multissl/openssl/${OPENSSL_VER}/lib" >> $GITHUB_ENV
     - name: 'Restore OpenSSL build'
       id: cache-openssl
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: ./multissl/openssl/${{ env.OPENSSL_VER }}
         key: ${{ runner.os }}-multissl-openssl-${{ env.OPENSSL_VER }}
@@ -286,7 +286,7 @@ jobs:
     - name: Bind mount sources read-only
       run: sudo mount --bind -o ro $GITHUB_WORKSPACE $CPYTHON_RO_SRCDIR
     - name: Restore config.cache
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: ${{ env.CPYTHON_BUILDDIR }}/config.cache
         key: ${{ github.job }}-${{ runner.os }}-${{ needs.check_source.outputs.config_hash }}
@@ -328,7 +328,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Restore config.cache
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: config.cache
         key: ${{ github.job }}-${{ runner.os }}-${{ needs.check_source.outputs.config_hash }}
@@ -343,7 +343,7 @@ jobs:
         echo "LD_LIBRARY_PATH=${GITHUB_WORKSPACE}/multissl/openssl/${OPENSSL_VER}/lib" >> $GITHUB_ENV
     - name: 'Restore OpenSSL build'
       id: cache-openssl
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: ./multissl/openssl/${{ env.OPENSSL_VER }}
         key: ${{ runner.os }}-multissl-openssl-${{ env.OPENSSL_VER }}
@@ -377,7 +377,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Restore config.cache
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: config.cache
         key: ${{ github.job }}-${{ runner.os }}-${{ needs.check_source.outputs.config_hash }}
@@ -396,7 +396,7 @@ jobs:
         echo "LD_LIBRARY_PATH=${GITHUB_WORKSPACE}/multissl/openssl/${OPENSSL_VER}/lib" >> $GITHUB_ENV
     - name: 'Restore OpenSSL build'
       id: cache-openssl
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: ./multissl/openssl/${{ env.OPENSSL_VER }}
         key: ${{ runner.os }}-multissl-openssl-${{ env.OPENSSL_VER }}
